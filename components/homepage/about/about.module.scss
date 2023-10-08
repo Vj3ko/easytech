@@ -1,0 +1,55 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+@import 'styles/breakpoints';
+
+.about {
+  @include flexLayout(space-between, center);
+  flex-direction: column;
+  gap: 1.6875rem;
+  margin-top: 5rem;
+
+  @include media-min($md) {
+    margin-top: 12.5rem;
+    flex-direction: row;
+    gap: 2.5rem;
+  }
+
+  @include media-min($lg) {
+    margin-top: 18.75rem;
+  }
+}
+
+.wrapper {
+  text-align: center;
+
+  .description {
+    max-width: 31.25rem;
+    margin: 1.5rem 0;
+
+    @include media-min($md) {
+      margin: 1.4375rem 0;
+    }
+
+    @include media-min($lg) {
+      margin: 2.5rem 0;
+      max-width: 43.125rem;
+    }
+  }
+}
+
+.img {
+  width: 10.4375rem;
+  height: auto;
+
+  @include media-min($md) {
+    width: 18.75rem;
+  }
+
+  @include media-min($lg) {
+    width: 26.25rem;
+  }
+
+  @include media-min($xl) {
+    width: 32.625rem;
+  }
+}

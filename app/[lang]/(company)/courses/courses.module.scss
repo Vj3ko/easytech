@@ -1,0 +1,12 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.courses {
+  margin-top: 6.25rem;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3.125rem;
+  }
+}

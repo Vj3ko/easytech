@@ -1,0 +1,39 @@
+@import 'styles/colors';
+
+.user__menu {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  right: 0;
+  background: $light-white;
+  border-radius: 0.5rem;
+  padding: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  min-width: 9.375rem;
+
+  & > * {
+    all: unset;
+    background: transparent;
+    padding: 0.3125rem 0.625rem;
+    transition: 250ms ease-in-out;
+    border-radius: 0.5rem;
+
+    &:hover {
+      background: $grey-5;
+      cursor: pointer;
+    }
+  }
+}
+
+.user__name {
+  font-size: 1rem;
+  font-style: italic;
+  color: $grey-white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

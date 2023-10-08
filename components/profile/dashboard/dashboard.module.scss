@@ -1,0 +1,49 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.dashboard {
+  @include flexLayout(space-between, flex-start);
+  gap: 8.125rem;
+}
+
+.aside {
+  margin-left: 1rem;
+  margin-top: 5rem;
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    button {
+      text-align: left;
+      padding-left: 0.9375rem;
+      font-family: Montserrat;
+      font-size: 1.75rem;
+      font-weight: 500;
+      line-height: 180%; /* 3.15rem */
+      width: 15.625rem;
+      border-radius: 0.5rem;
+      background: $grey-white;
+      color: $purple;
+      cursor: pointer;
+      border: none;
+      transition: 250ms ease-in-out;
+
+      &.active {
+        color: $grey-white;
+        background: $purple-light;
+      }
+    }
+  }
+}
+
+.panel {
+  flex: 2;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 180%; /* 72px */
+  }
+}

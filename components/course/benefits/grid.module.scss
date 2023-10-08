@@ -1,0 +1,39 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.grid {
+  margin-top: 5.3125rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 3.75rem;
+
+  .item {
+    position: relative;
+    max-width: 17.1875rem;
+
+    &__header {
+      @include flexLayout(unset, center);
+      gap: 0.625rem;
+    }
+
+    &__title {
+      line-height: 140%;
+      color: $light-white;
+    }
+
+    &__description {
+      margin-top: 1.25rem;
+      color: $light-white;
+    }
+
+    &__img {
+      flex-shrink: 0;
+      position: relative;
+      @include flexLayout(center, center);
+      width: 6.25rem;
+      height: 6.25rem;
+      border-radius: 50%;
+    }
+  }
+}

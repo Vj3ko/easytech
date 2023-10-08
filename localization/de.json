@@ -1,0 +1,20 @@
+{
+    "navigation": {
+        "home": "Startseite",
+        "courses": "Kurse",
+        "contacts": "Kontakte",
+        "about": "über uns"
+    },
+    "page": {
+        "home": {
+            "hero" : {
+                "description": "Es ist Zeit, das Codieren zu lernen"
+            }
+        }
+    },
+    "shared" : {
+        "apply_btn": "Jetzt bewerben",
+        "learn_btn": "Erfahren Sie mehr",
+        "email_input": "Email eingeben"
+    }
+}

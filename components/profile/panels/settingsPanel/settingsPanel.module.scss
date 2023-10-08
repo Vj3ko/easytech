@@ -1,0 +1,14 @@
+@import 'styles/colors';
+
+.settings__panel {
+  .setting__option {
+    margin-top: 3.125rem;
+    background: $light-white;
+    padding: 2.5rem 3.125rem;
+    border-radius: 0.5rem;
+
+    h3 {
+      color: $purple;
+    }
+  }
+}

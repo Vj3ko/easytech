@@ -1,0 +1,13 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+@import 'styles/breakpoints';
+
+.menu__toggler {
+  background: transparent;
+  border: none;
+  @include flexLayout(center, center);
+
+  @include media-min($md) {
+    display: none;
+  }
+}

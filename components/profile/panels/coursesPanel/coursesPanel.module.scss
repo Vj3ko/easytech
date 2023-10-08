@@ -1,0 +1,118 @@
+@import 'styles/mixins';
+@import 'styles/colors';
+
+.courses__panel {
+  .status {
+    @include flexLayout(flex-end, center);
+    gap: 1.875rem;
+
+    .greyed {
+      color: $grey-2;
+    }
+  }
+
+  .course {
+    margin-top: 2.5rem;
+
+    &__info_wrapper {
+      display: flex;
+      gap: 2.25rem;
+      margin-top: 3.125rem;
+
+      .flex__col {
+        display: flex;
+        flex-direction: column;
+        gap: 2.8125rem;
+
+        p {
+          font-weight: bolder;
+        }
+
+        &.grey {
+          p {
+            color: $grey-2;
+            font-weight: 500;
+          }
+        }
+
+        .progress {
+          @include flexLayout(center, center);
+          gap: 1.25rem;
+        }
+
+        .strike {
+          display: flex;
+
+          &__img {
+            position: relative;
+            width: 2.6875rem;
+            height: 2.6875rem;
+          }
+        }
+      }
+    }
+  }
+
+  // range input styles
+  /*********** Baseline, reset styles ***********/
+  input[type='range'] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16.5625rem;
+    height: 0.2813rem;
+    background: linear-gradient(
+      to right,
+      $grey-4 0%,
+      $grey-4 72%,
+      $grey-5 72%,
+      $grey-5 100%
+    );
+
+    /* Removes default focus */
+    &:focus {
+      outline: none;
+    }
+    /******** Chrome, Safari, Opera and Edge Chromium styles ********/
+    /* slider track */
+    &::-webkit-slider-runnable-track {
+      border-radius: 0rem;
+      height: 0.2813rem;
+    }
+    /* slider thumb */
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none; /* Override default look */
+      appearance: none;
+      margin-top: -0.7969rem; /* Centers thumb on the track */
+      background-color: $purple-light;
+      border-radius: 0.625rem;
+      height: 1.875rem;
+      width: 0.9375rem;
+    }
+
+    //focused thumb
+    &:focus::-webkit-slider-thumb {
+      outline: 0.1875rem solid $purple-light;
+      outline-offset: 0.125rem;
+    }
+    /*********** Firefox styles ***********/
+    /* slider track */
+    &::-moz-range-track {
+      border-radius: 0rem;
+    }
+
+    /* slider thumb */
+    &::-moz-range-thumb {
+      background-color: $purple-light;
+      border: none; /*Removes extra border that FF applies*/
+      border-radius: 0.625rem;
+      height: 1.875rem;
+      width: 0.9375rem;
+    }
+
+    //focus thumb
+    &:focus::-moz-range-thumb {
+      outline: 0.1875rem solid $purple-light;
+      outline-offset: 0.125rem;
+    }
+  }
+}

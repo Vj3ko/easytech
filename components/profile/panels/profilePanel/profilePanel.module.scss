@@ -1,0 +1,80 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.profile__panel {
+  .user {
+    margin-top: 4.6875rem;
+    @include flexLayout(unset, center);
+    gap: 2.5rem;
+
+    &__img {
+      position: relative;
+      background: $grey-3;
+      width: 9.375rem;
+      height: 9.375rem;
+      border-radius: 50%;
+      @include flexLayout(center, center);
+
+      span {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 3.125rem;
+        width: 3.125rem;
+        background: $pink-3;
+        border-radius: 50%;
+        @include flexLayout(center, center);
+      }
+    }
+
+    &__name {
+      text-transform: capitalize;
+    }
+  }
+
+  .form {
+    margin-top: 3.75rem;
+    text-align: center;
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 3.625rem;
+      row-gap: 2.125rem;
+      text-align: left;
+
+      &__item {
+        @include flexLayout(center, unset);
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+
+    label {
+      font-family: Inconsolata;
+      font-size: 1.25rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%; /* 28px */
+    }
+
+    input {
+      border: 0.125rem solid $purple-light;
+      border-radius: 0.5rem;
+      padding: 1rem 1.875rem;
+      font-size: 1.25rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%; /* 28px */
+
+      &::placeholder {
+        color: $grey-1;
+        font-family: Inconsolata;
+      }
+    }
+
+    button {
+      margin-top: 3.4375rem;
+    }
+  }
+}

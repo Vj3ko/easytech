@@ -1,0 +1,20 @@
+{
+    "navigation": {
+        "home": "Home",
+        "courses": "Courses",
+        "contacts": "Contacts",
+        "about": "About"
+    },
+    "page": {
+        "home": {
+            "hero" : {
+                "description": "It's time to learn coding"
+            }
+        }
+    },
+    "shared" : {
+        "apply_btn": "Apply now",
+        "learn_btn": "Learn more",
+        "email_input": "Enter email"
+    }
+}

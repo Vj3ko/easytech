@@ -1,0 +1,16 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.banner {
+  padding: 2.0625rem 1.5625rem;
+  background: $light-white;
+  @include flexLayout(space-between, center);
+  gap: 5rem;
+  margin-top: 6.25rem;
+  border-radius: 0.5rem;
+
+  p {
+    color: $purple-light;
+    font-weight: bolder;
+  }
+}

@@ -1,0 +1,46 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.hero {
+  @include flexLayout(space-between, center);
+
+  h2 {
+    color: $light-white;
+  }
+
+  h3 {
+    margin-top: 3.125rem;
+    max-width: 39.375rem;
+    color: $light-white;
+  }
+
+  .cta__wrapper {
+    @include flexLayout(space-between, center);
+    margin-top: 5.625rem;
+    max-width: 39.375rem;
+
+    .status {
+      font-size: 1.5rem;
+      padding: 0.125rem 1.125rem;
+      border-radius: 0.5rem;
+      font-family: Inconsolata, sans-serif;
+    }
+
+    .duration {
+      color: $light-white;
+      font-family: Inconsolata, sans-serif;
+      font-size: 1.5rem;
+    }
+  }
+
+  .img__container {
+    position: relative;
+    right: -3.125rem;
+    top: -4.375rem;
+
+    .img {
+      width: auto;
+      height: 37.5rem;
+    }
+  }
+}

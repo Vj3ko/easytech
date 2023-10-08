@@ -1,0 +1,105 @@
+@import './colors';
+@import './fonts';
+@import './custom';
+@import './breakpoints';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $bg;
+  font-family: 'Montserrat', sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 140%;
+  font-weight: 600;
+  color: $purple;
+
+  @include media-min($md) {
+    font-size: 1.875rem;
+    line-height: 140%;
+  }
+
+  @include media-min($lg) {
+    font-size: 2.25rem;
+    line-height: 150%;
+  }
+
+  @include media-min($xl) {
+    font-size: 2.75rem;
+    line-height: 5rem;
+  }
+}
+
+h3 {
+  font-size: 1rem;
+  line-height: 140%;
+  font-style: normal;
+  font-weight: 600;
+  color: $purple;
+
+  @include media-min($md) {
+    font-size: 1.25rem;
+  }
+
+  @include media-min($lg) {
+    font-size: 1.75rem;
+    line-height: 180%; /* 3.15rem */
+  }
+}
+
+h4 {
+  color: $light-white;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 2.7rem */
+
+  @include media-min($md) {
+    font-size: 1rem;
+  }
+
+  @include media-min($lg) {
+    font-size: 1.5rem;
+    line-height: 180%; /* 3.15rem */
+  }
+}
+
+p {
+  font-size: 0.75rem;
+  line-height: 140%;
+  // max-width: 31.25rem;
+  font-weight: 400;
+  font-family: 'Inconsolata', monospace;
+  color: $purple-dark;
+
+  @include media-min($md) {
+    font-size: 1rem;
+    line-height: 150%;
+  }
+
+  @include media-min($lg) {
+    font-size: 1.25rem;
+    line-height: 150%;
+  }
+
+  @include media-min($xl) {
+    font-size: 1.5rem;
+    line-height: 2.7rem;
+  }
+}

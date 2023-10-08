@@ -1,0 +1,90 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  //login/Reg submit button centered
+  button:last-child {
+    align-self: center;
+    width: fit-content;
+  }
+
+  label {
+    color: $purple-dark;
+    font-family: Inconsolata;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 1.75rem */
+    position: relative;
+    margin: 0.625rem 0;
+  }
+
+  input[type='text'],
+  input[type='password'],
+  input[type='email'] {
+    margin-top: 0.625rem;
+    width: 100%;
+    padding: 1rem 1.875rem;
+    border-radius: 0.5rem;
+    border: 0.125rem solid $purple-light;
+    outline: none;
+    background: $white;
+
+    &::placeholder {
+      color: $grey-1;
+      font-family: Poppins;
+      font-size: 0.9375rem;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+    }
+  }
+}
+
+.checkbox {
+  margin-bottom: 3.125rem;
+  margin-top: 1.5625rem;
+  @include flexLayout(space-between, center);
+
+  label {
+    margin: unset;
+    color: $purple-dark;
+    font-family: Inconsolata;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 1.4rem */
+    @include flexLayout(unset, center);
+    cursor: pointer;
+  }
+
+  input[type='checkbox'] {
+    margin-right: 0.625rem;
+  }
+
+  button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.error {
+  font-size: 0.8125rem;
+  font-weight: bolder;
+  color: $red;
+  text-align: center;
+}
+
+//show password icon
+.pass_visible {
+  position: absolute;
+  right: 1.125rem;
+  top: 3.25rem;
+  z-index: 100;
+  cursor: pointer;
+}

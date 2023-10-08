@@ -1,0 +1,126 @@
+@import 'styles/mixins';
+@import 'styles/colors';
+
+.auth {
+  margin-top: 2rem;
+  margin-bottom: 3.75rem;
+}
+
+.logo {
+  span {
+    color: $purple;
+  }
+}
+
+.flex__container {
+  margin-top: 1.625rem;
+  @include flexLayout(space-between, unset);
+  gap: 3.125rem;
+}
+
+.img__wrapper {
+  flex: 1;
+  position: relative;
+
+  .img {
+    height: 100%;
+    width: auto;
+  }
+}
+
+.wrapper {
+  flex: 1;
+  max-width: 29.375rem;
+  @include flexLayout(unset, center);
+  flex-direction: column;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 180%; /* 4.5rem */
+  }
+
+  p {
+    color: $purple-dark;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 2.1rem */
+    margin-bottom: 1.625rem;
+  }
+}
+
+.switch__container {
+  label {
+    @include flexLayout(space-between, center);
+    gap: 6rem;
+    margin: 2.0625rem 0;
+    padding: 1.125rem 3.75rem;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    position: relative;
+    cursor: pointer;
+
+    p {
+      color: $white;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 0;
+      z-index: 10;
+      transition: 500ms ease-in-out;
+    }
+  }
+
+  //hide the checkbox
+  input[type='checkbox'] {
+    position: absolute;
+    height: 0rem;
+    width: 0rem;
+  }
+
+  .slider {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $pink-2;
+
+    //purple slider
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 5%;
+      transform: translateY(-50%);
+      width: 9.125rem;
+      height: 2.5rem;
+      background: $purple-light;
+      z-index: 1;
+      border-radius: 0.5rem;
+      transition: 250ms ease-in-out;
+    }
+  }
+
+  //if input is checked, move slider
+  input:checked + .slider::after {
+    left: 50%;
+  }
+
+  //if input is focused, focus on slider
+  input:focus + .slider::after {
+    border: 0.0625rem solid $white;
+  }
+
+  // input:checked ~ .register {
+  //   font-weight: 600;
+  // }
+
+  // input:not(:checked) ~ .login {
+  //   font-weight: 600;
+  // }
+}
+
+.form__wrapper {
+  width: 100%;
+}

@@ -1,0 +1,118 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+@import 'styles/breakpoints';
+
+.invest {
+  margin-top: 3.375rem;
+  text-align: center;
+
+  @include media-min($md) {
+    margin-top: 6.25rem;
+  }
+
+  @include media-min($lg) {
+    margin-top: 8.125rem;
+  }
+
+  p {
+    margin: auto;
+    margin-top: 1rem;
+    max-width: 31.25rem;
+
+    @include media-min($md) {
+      margin-top: 2.25rem;
+    }
+
+    @include media-min($lg) {
+      max-width: 52.875rem;
+    }
+  }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 2.5rem;
+  column-gap: 0.625rem;
+  max-width: 21.875rem;
+  margin: auto;
+  margin-top: 2rem;
+
+  @include media-min($sm) {
+    margin-top: 3.125rem;
+    max-width: 31.25rem;
+  }
+
+  @include media-min($md) {
+    max-width: 40.625rem;
+    row-gap: 4rem;
+  }
+
+  @include media-min($lg) {
+    max-width: 51.25rem;
+    row-gap: 6rem;
+  }
+
+  @include media-min($xl) {
+    @include flexLayout(space-between, flex-start);
+    max-width: 100%;
+  }
+}
+
+.item {
+  @include flexLayout(unset, center);
+  flex-direction: column;
+  gap: 0.625rem;
+
+  @include media-min($md) {
+    gap: 0.625rem;
+  }
+
+  &__title {
+    font-size: 2.25rem;
+    line-height: 2.25rem;
+    font-weight: 400;
+    background: $linear-gradient-text;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-family: 'Roboto';
+
+    @include media-min($sm) {
+      font-size: 3.125rem;
+      line-height: 3.125rem;
+    }
+
+    @include media-min($md) {
+      font-size: 4.5rem;
+      line-height: 4.5rem;
+    }
+
+    @include media-min($xl) {
+      font-size: 6rem;
+      line-height: 6rem;
+    }
+  }
+
+  &__description {
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+    text-align: center;
+
+    @include media-min($sm) {
+      font-size: 1.625rem;
+      line-height: 2rem;
+    }
+
+    @include media-min($md) {
+      font-size: 2rem;
+      line-height: 2.5625rem;
+      max-width: 15.625rem;
+    }
+
+    @include media-min($lg) {
+      max-width: 17.5rem;
+    }
+  }
+}

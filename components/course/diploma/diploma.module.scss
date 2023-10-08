@@ -1,0 +1,32 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.diploma {
+  margin-top: 7.5rem;
+
+  h2 {
+    color: $light-white;
+  }
+
+  &__banner {
+    background: $light-white;
+    margin-top: 9.375rem;
+    padding: 2.5rem 3.4375rem;
+    border-radius: 0.5rem;
+    @include flexLayout(flex-end, unset);
+    position: relative;
+
+    &::after {
+      content: url('/assets/images/diploma.png');
+      position: absolute;
+      left: 7rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    h3 {
+      color: $purple;
+      max-width: 44.375rem;
+    }
+  }
+}

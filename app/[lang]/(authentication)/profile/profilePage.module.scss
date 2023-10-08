@@ -1,0 +1,17 @@
+@import 'styles/mixins';
+@import 'styles/colors';
+
+.profile {
+  margin-top: 2rem;
+  margin-bottom: 3.75rem;
+}
+
+.logo {
+  span {
+    color: $purple;
+  }
+}
+
+.dashboard__container {
+  margin-top: 1.625rem;
+}

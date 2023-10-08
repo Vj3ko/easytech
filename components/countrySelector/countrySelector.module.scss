@@ -1,0 +1,34 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.countries {
+  padding: 0.625rem;
+  font-size: 1.5rem;
+  font-family: Inconsolata, sans-serif;
+  color: $grey-2;
+  width: 100%;
+  height: 100%;
+  text-indent: 0;
+  transition: 250ms ease-in-out;
+
+  &_indent {
+    text-indent: 2.5rem;
+  }
+
+  option {
+    font-size: 0.8125rem;
+  }
+}
+
+.flag {
+  position: absolute;
+  left: 0.625rem;
+  top: 50%;
+  transform: translateY(-50%);
+  @include flexLayout(center, center);
+  width: 2.1875rem;
+  height: 1.5625rem;
+
+  //shadow around the flag so countries with white color differs from background of parent element
+  box-shadow: 0 0 0.3125rem 0 rgba(19, 18, 18, 0.15);
+}

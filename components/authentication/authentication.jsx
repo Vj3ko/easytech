@@ -26,59 +26,52 @@ const imgVariant = {
 }
 
 const Authentication = ({ lang }) => {
-  const [type, setType] = useState('Login')
+  const [isChecked, setIsChecked] = useState(false)
   const router = useRouter()
 
-  const handleCheckbox = e => {
-    const isChecked = e.target.checked
-    isChecked ? setType('Register') : setType('Login')
+  let type = isChecked === true ? 'Register' : 'Login'
+
+  const toggleChecked = () => {
+    setIsChecked(prev => !prev)
   }
 
   const handleLogin = async data => {
-    const { name, password } = data
+    const { email, password } = data
 
-    try {
-      const response = await signIn('credentials', {
-        name,
-        password,
-        redirect: false,
-      })
-
-      if (response.error) {
-        toast.error('Invalid credentials')
-        return
+    signIn('credentials', {
+      email,
+      password,
+      redirect: false,
+    }).then(callback => {
+      if (callback?.error) {
+        toast.error(callback.error)
       }
 
-      router.refresh()
-    } catch (error) {
-      console.error('Error trying to login: ', error)
-    }
+      if (callback?.ok && !callback?.error) {
+        router.refresh()
+      }
+    })
   }
 
   const handleRegister = async data => {
     const { email, name, password } = data
 
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/register`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email, name, password }),
-        }
-      )
+      const response = await fetch(`/api/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, name, password }),
+      })
 
       const { message } = await response.json()
       if (!response.ok) {
         toast.error(message)
         return
       }
-
       toast.success(message)
-      router.refresh()
-      // handleLogin({ name, password })
+      toggleChecked()
     } catch (error) {
       console.error('Error trying to register: ', error)
     }
@@ -127,7 +120,7 @@ const Authentication = ({ lang }) => {
 
           <div className={styles.wrapper}>
             <h1>Welcome to EasyTech!</h1>
-            <ToggleSwitch handleCheckbox={handleCheckbox} />
+            <ToggleSwitch isChecked={isChecked} toggleChecked={toggleChecked} />
 
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -161,13 +154,14 @@ Authentication.propTypes = {
 
 export default Authentication
 
-const ToggleSwitch = ({ handleCheckbox }) => {
+const ToggleSwitch = ({ isChecked, toggleChecked }) => {
   return (
     <div className={styles.switch__container}>
       <label htmlFor='switch'>
         <input
           type='checkbox'
-          onChange={handleCheckbox}
+          checked={isChecked}
+          onChange={toggleChecked}
           name='switch'
           id='switch'
         />

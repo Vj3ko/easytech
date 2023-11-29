@@ -17,8 +17,11 @@ const FormData = ({ type = 'Login', handleLogin, handleRegister }) => {
   const [password, setPassword] = useState('')
 
   const validateForm = (email, name, password) => {
-    if (!name) {
-      toast.error("'Name' field can not be empty")
+    if (!email) {
+      toast.error("'Email' field can not be empty")
+      return false
+    } else if (!isEmailValid(email)) {
+      toast.error('Email is not valid')
       return false
     }
 
@@ -33,11 +36,8 @@ const FormData = ({ type = 'Login', handleLogin, handleRegister }) => {
         return false
       }
 
-      if (!email) {
-        toast.error("'Email' field can not be empty")
-        return false
-      } else if (!isEmailValid(email)) {
-        toast.error('Email is not valid')
+      if (!name) {
+        toast.error("'Name' field can not be empty")
         return false
       }
     }
@@ -53,40 +53,38 @@ const FormData = ({ type = 'Login', handleLogin, handleRegister }) => {
       return
     }
 
-    if (type === 'Login') handleLogin({ name, password })
+    if (type === 'Login') handleLogin({ email, password })
     if (type === 'Register') handleRegister({ email, name, password })
   }
 
   return (
     <form className={styles.form} onSubmit={handleFormSubmit}>
       <ToastContainer />
-      {/* email input*/}
+      {/* username*/}
       {type === 'Register' && (
-        <div>
-          <label htmlFor='email'>
-            Email Address
-            <input
-              type='email'
-              id='email'
-              name='email'
-              placeholder='Enter your email address'
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-            />
-          </label>
-        </div>
+        <label htmlFor='name'>
+          Name
+          <input
+            type='text'
+            id='name'
+            name='name'
+            placeholder='Enter your User name'
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
+        </label>
       )}
 
-      {/* name */}
-      <label htmlFor='name'>
-        User name
+      {/* email */}
+      <label htmlFor='email'>
+        Email
         <input
-          type='text'
-          id='name'
-          name='name'
-          placeholder='Enter your User name'
-          value={name}
-          onChange={e => setName(e.target.value)}
+          type='email'
+          id='email'
+          name='email'
+          placeholder='Enter your email address'
+          value={email}
+          onChange={e => setEmail(e.target.value)}
         />
       </label>
 

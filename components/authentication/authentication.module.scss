@@ -111,14 +111,6 @@
   input:focus + .slider::after {
     border: 0.0625rem solid $white;
   }
-
-  // input:checked ~ .register {
-  //   font-weight: 600;
-  // }
-
-  // input:not(:checked) ~ .login {
-  //   font-weight: 600;
-  // }
 }
 
 .form__wrapper {

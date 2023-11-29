@@ -32,7 +32,7 @@ const ProfilePanel = () => {
           </div>
         </div>
 
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={e => e.preventDefault()}>
           <div className={styles.grid}>
             <div className={styles.grid__item}>
               <label htmlFor='name'>User name</label>

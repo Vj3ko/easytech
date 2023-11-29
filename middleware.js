@@ -15,7 +15,7 @@ function getLocale(request) {
   return locale
 }
 
-export function middleware(request) {
+export async function middleware(request) {
   // Check if there is any supported locale in the pathname
   const pathname = request.nextUrl.pathname
   const pathnameIsMissingLocale = i18n.locales.every(
@@ -26,11 +26,13 @@ export function middleware(request) {
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request)
 
+    // e.g. incoming request is /
+    // The new URL is now /en
     if (pathname === '/') {
       return NextResponse.redirect(new URL(`/${locale}`, request.url))
     }
     // e.g. incoming request is /products
-    // The new URL is now /en-US/products
+    // The new URL is now /en/products
     return NextResponse.redirect(new URL(`/${locale}/${pathname}`, request.url))
   }
 }
